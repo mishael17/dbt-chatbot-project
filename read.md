@@ -1,5 +1,5 @@
 1. Clone the repo
-git clone https://github.com/your-username/dbt-chatbot.git
+git clone https://github.com/your-username/dbt-chatbot-project.git
 cd dbt-chatbot
 
 2. Set up virtual environment
