@@ -1,0 +1,112 @@
+{
+	"nodes": {
+	  "model.orders.fct_orders": {
+		"name": "fct_orders",
+		"description": "Fact table for orders, includes revenue and transaction details.",
+		"config": {
+		  "materialized": "incremental"
+		},
+		"columns": {
+		  "order_id": {
+			"description": "Primary key for the orders table."
+		  },
+		  "total_amount": {
+			"description": "The total revenue from an order."
+		  },
+		  "order_date": {
+			"description": "The date the order was placed."
+		  },
+		  "customer_id": {
+			"description": "Reference to the customer who placed the order."
+		  }
+		}
+	  },
+	  "model.customers.dim_customers": {
+		"name": "dim_customers",
+		"description": "Dimension table containing customer information.",
+		"config": {
+		  "materialized": "table"
+		},
+		"columns": {
+		  "customer_id": {
+			"description": "Unique identifier for each customer."
+		  },
+		  "customer_name": {
+			"description": "Full name of the customer."
+		  },
+		  "email": {
+			"description": "Email address of the customer."
+		  },
+		  "signup_date": {
+			"description": "The date when the customer registered."
+		  }
+		}
+	  },
+	  "model.products.dim_products": {
+		"name": "dim_products",
+		"description": "Dimension table listing product details and categories.",
+		"config": {
+		  "materialized": "table"
+		},
+		"columns": {
+		  "product_id": {
+			"description": "Unique identifier for each product."
+		  },
+		  "product_name": {
+			"description": "Name of the product."
+		  },
+		  "category": {
+			"description": "Product category."
+		  },
+		  "price": {
+			"description": "Retail price of the product."
+		  }
+		}
+	  },
+	  "model.sales.fct_sales": {
+		"name": "fct_sales",
+		"description": "Fact table capturing sales transactions and performance metrics.",
+		"config": {
+		  "materialized": "incremental"
+		},
+		"columns": {
+		  "sale_id": {
+			"description": "Unique identifier for the sale transaction."
+		  },
+		  "order_id": {
+			"description": "Reference to the order associated with the sale."
+		  },
+		  "sale_amount": {
+			"description": "Total value of the sale."
+		  },
+		  "sale_date": {
+			"description": "Date when the sale occurred."
+		  }
+		}
+	  },
+	  "model.marketing.dim_campaigns": {
+		"name": "dim_campaigns",
+		"description": "Dimension table for marketing campaigns and channels.",
+		"config": {
+		  "materialized": "table"
+		},
+		"columns": {
+		  "campaign_id": {
+			"description": "Unique identifier for each marketing campaign."
+		  },
+		  "campaign_name": {
+			"description": "Name of the campaign."
+		  },
+		  "start_date": {
+			"description": "Campaign start date."
+		  },
+		  "end_date": {
+			"description": "Campaign end date."
+		  },
+		  "channel": {
+			"description": "Marketing channel used for the campaign."
+		  }
+		}
+	  }
+	}
+  }
