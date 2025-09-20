@@ -28,7 +28,7 @@ if __name__ == "__main__":
                 parts=[
                     types.Part(
                         text="You are a travel expert.Here is some information:"
-						"A plan to go on a honeymoon to New Zealnd in November"
+						"A plan to go to Greece in winter this year"
                         "How plan a good adventurous experience"
 
                     )
