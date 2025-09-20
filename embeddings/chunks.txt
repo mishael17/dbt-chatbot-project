@@ -1,0 +1,51 @@
+Model: fct_orders
+Description: Fact table for orders, includes revenue and transaction details.
+Materialization: incremental
+Columns:
+  - order_id: Primary key for the orders table.
+  - total_amount: The total revenue from an order.
+  - order_date: The date the order was placed.
+  - customer_id: Reference to the customer who placed the order.
+
+---
+Model: dim_customers
+Description: Dimension table containing customer information.
+Materialization: table
+Columns:
+  - customer_id: Unique identifier for each customer.
+  - customer_name: Full name of the customer.
+  - email: Email address of the customer.
+  - signup_date: The date when the customer registered.
+
+---
+Model: dim_products
+Description: Dimension table listing product details and categories.
+Materialization: table
+Columns:
+  - product_id: Unique identifier for each product.
+  - product_name: Name of the product.
+  - category: Product category.
+  - price: Retail price of the product.
+
+---
+Model: fct_sales
+Description: Fact table capturing sales transactions and performance metrics.
+Materialization: incremental
+Columns:
+  - sale_id: Unique identifier for the sale transaction.
+  - order_id: Reference to the order associated with the sale.
+  - sale_amount: Total value of the sale.
+  - sale_date: Date when the sale occurred.
+
+---
+Model: dim_campaigns
+Description: Dimension table for marketing campaigns and channels.
+Materialization: table
+Columns:
+  - campaign_id: Unique identifier for each marketing campaign.
+  - campaign_name: Name of the campaign.
+  - start_date: Campaign start date.
+  - end_date: Campaign end date.
+  - channel: Marketing channel used for the campaign.
+
+---
